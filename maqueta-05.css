@@ -47,6 +47,23 @@ img {
   height: auto;
 }
 
+.titulo {
+  position: relative;
+  width: 100%;
+  height: clamp(500px, 50vw, 1000px);
+  overflow: hidden;
+}
+
+/* Aplica directamente a la imagen dentro de .titulo */
+.titulo img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Estira y recorta la imagen proporcionalmente para ocupar toda la pantalla */
+  border-radius: 0;
+}
 /* ==========================================
    2. TIPOGRAFÍA GENERAL (RESPONSIVA)
    ========================================== */
