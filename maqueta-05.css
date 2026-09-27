@@ -216,11 +216,11 @@ p {
 }
 
 /* ==========================================
-   6. CARRUSEL (SLIDER)
+   6. CARRUSEL (SLIDER) - CORREGIDO
    ========================================== */
 
 .slider {
-  min-height: 800px;
+  min-height: 850px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -232,11 +232,11 @@ p {
 }
 
 .slider__nav {
-  width: 14px;
-  height: 14px;
-  margin: 0.5rem 8px;
+  width: 16px;
+  height: 16px;
+  margin: 0 6px 20px 6px;
   border-radius: 50%;
-  z-index: 10;
+  z-index: 20; /* Asegura que las bolitas queden sobre el texto */
   outline: 2px solid #2f1c49;
   outline-offset: 2px;
   cursor: pointer;
@@ -268,19 +268,19 @@ p {
 
 .slider__contents {
   height: 100%;
-  padding: 2rem 1.5rem 90px 1.5rem;
+  padding: 2rem 1.5rem 80px 1.5rem; /* Margen inferior para no tapar los botones */
   text-align: center;
   display: flex;
   flex: 1;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .slider__image {
   width: 100%;
   max-width: 500px;
-  height: 350px;
+  height: 320px;
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 1rem;
@@ -290,7 +290,7 @@ p {
   font-family: 'Jazmin-Bold', serif;
   font-size: clamp(1.8rem, 4vw, 2.3rem);
   color: #2f1c49;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   text-transform: uppercase;
 }
 
@@ -300,9 +300,11 @@ p {
   color: #2f1c49;
   max-width: 600px;
   text-align: center;
-  margin: 0 auto 2rem auto;
+  margin: 0 auto;
   padding: 0 15px;
+  line-height: 1.5;
 }
+
 
 /* ==========================================
    7. FINAL DE PÁGINA (AGRADECIMIENTOS Y FOOTER)
@@ -375,6 +377,9 @@ p {
 /* ==========================================
    8. ADAPTABILIDAD RESPONSIVA (MÓVILES)
    ========================================== */
+/* ==========================================
+   8. ADAPTABILIDAD RESPONSIVA (MÓVILES)
+   ========================================== */
 
 @media (max-width: 768px) {
   .columnas {
@@ -382,16 +387,27 @@ p {
     gap: 30px;
   }
 
+  /* Ajustes para el carrusel en celulares */
   .slider {
-    min-height: 750px;
+    min-height: 880px; /* Se aumenta la altura total para textos largos */
+  }
+
+  .slider__contents {
+    padding: 1rem 1rem 80px 1rem;
   }
 
   .slider__image {
-    height: 250px;
+    height: 190px; /* Reducción de la altura de la imagen para mostrar más foto */
+    object-fit: cover;
+  }
+
+  .slider__txt {
+    font-size: 0.88rem; /* Tamaño de letra optimizado para lectura en celular */
+    line-height: 1.45;
+    padding: 0 5px;
   }
 
   .pie-info {
     gap: 40px;
   }
 }
-
