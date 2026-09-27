@@ -1,30 +1,45 @@
-/* Inside your style.css file or <style> block */
+/* ==========================================
+   1. REGISTRAR FUENTES Y RESET GENERAL
+   ========================================== */
+
+/* NOTA: Asegúrate de alojar los archivos .otf en la carpeta 'fuentes' de tu repositorio */
 @font-face {
   font-family: 'Jazmin-Black';
-  src: url('https://drive.google.com/file/d/1SuCwKZUjy1PcS7HoKRNuDb13nTYxsdWd/view?usp=sharing') format('otf');
+  src: url('./fuentes/Jazmin-Black.otf') format('opentype');
   font-weight: normal;
-  font-style: black;
+  font-style: normal;
 }
 
 @font-face {
   font-family: 'Jazmin-Bold';
-  src: url('https://drive.google.com/file/d/1pTw8cej0ENtcqiHa-b2iS4OX-y_-E0P1/view?usp=sharing') format('otf');
-  font-weight: normal;
+  src: url('./fuentes/Jazmin-Bold.otf') format('opentype');
+  font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Jazmin-BoldIt';
-  src: url('https://drive.google.com/file/d/1r_8uI4NWdWfFupj231C-FOblwJrJPHk5/view?usp=sharing') format('otf');
-  font-weight: normal;
-  font-style: normal;
+  src: url('./fuentes/Jazmin-BoldIt.otf') format('opentype');
+  font-weight: bold;
+  font-style: italic;
 }
 
 @font-face {
   font-family: 'Juana';
-  src: url('https://drive.google.com/file/d/1g9CO8TNBRDneP2i2aQZORjsLFqwX7QSJ/view?usp=sharing') format('otf');
+  src: url('./fuentes/Juana.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #e6d3ff;
+  margin: 0;   
+  padding: 0;
+  overflow-x: hidden; /* Evita desplazamiento horizontal en celulares */
 }
 
 img {
@@ -32,73 +47,62 @@ img {
   height: auto;
 }
 
-body{
-  background:#e6d3ff ;
-  margin: 0;   
-  padding: 0;
-}
+/* ==========================================
+   2. TIPOGRAFÍA GENERAL (RESPONSIVA)
+   ========================================== */
 
-/* Titulo grande */
 h1 {
-  font-family: 'Jazmin-Black';
-  font-weight: 150;
-  font-size: clamp(5rem, 10vw, 18rem);
+  font-family: 'Jazmin-Black', serif;
+  font-weight: normal;
+  font-size: clamp(2.5rem, 8vw, 12rem);
   color: #2f1c49;
+  padding: 0 15px;
+  word-break: break-word;
 }
-
-/*Titulo graande de uso normal*/
 
 h2 {
   font-family: 'Jazmin-Bold', serif;
-  font-weight: 150;
-  font-size: 4rem;
+  font-weight: bold;
+  font-size: clamp(2rem, 6vw, 4rem);
   color: #2f1c49;
-  
-  text-align-last: center;
+  text-align: center;
+  padding: 0 15px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
-
-/*subtitulo parrafo*/
 h3 {
   font-family: 'Juana', serif;
-  font-weight: 150;
-  font-size:2rem;
+  font-weight: normal;
+  font-size: 2rem;
   color: #2f1c49;
+  margin-top: 0;
 }
 
-/*parrafo texto comun*/
 p {
   font-family: 'Juana', serif;
-  font-weight: 150;
-  font-size:1rem;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.6;
   text-align: left;
   color: #2f1c49;
   max-width: 1000px;
-  margin:0 auto;
-}
-
-.columnas {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  max-width: 1000px;
   margin: 0 auto;
-  margin-bottom: 80px;
+  padding: 0 24px; /* Margen de seguridad para pantallas pequeñas */
 }
 
-.columna p {
-  max-width: none;
-  margin: 0;
-}
+/* ==========================================
+   3. HERO / CABECERA DE LA PÁGINA
+   ========================================== */
 
 .titulo {
   position: relative;
   width: 100%;
-  height: clamp(600px, 50vw, 1000px);
+  height: clamp(500px, 50vw, 1000px);
 }
 
 .titulo img {
-   position: absolute;
+  position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -111,118 +115,95 @@ p {
 .titulo h1 {
   position: absolute;
   z-index: 1;
-  top: 0px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
   text-align: center;
   margin: 0;
-
 }
+
+/* ==========================================
+   4. SECCIÓN DE COLUMNAS (MOTIVACIONES)
+   ========================================== */
+
+.columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto 80px auto;
+  padding: 0 24px;
+}
+
+.columna p {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ==========================================
+   5. SEPARADOR ANIMADO (MARQUESINA)
+   ========================================== */
 
 .separador {
   position: relative;
   width: 100%;
-  margin: 0;
-  min-height: 250px;     /* Altura mínima deseada */
-  padding: 80px 20px;
+  min-height: 200px;
   background: #2f1c49;
-
   overflow: hidden;
   white-space: nowrap;
   display: flex;
   align-items: center;
   padding: 40px 0;
+  margin: 60px 0;
 }
 
 .cartel-track {
   display: inline-block;
   white-space: nowrap;
-  padding-left: 100%; /* Inicia el recorrido desde fuera de la pantalla a la derecha */
-  animation: moverCartel 18s linear infinite; /* Ajusta los segundos para acelerar o frenar */
+  padding-left: 100%;
+  animation: moverCartel 18s linear infinite;
 }
 
 .cartel-item {
   display: inline-block;
-  padding-right: 60px; /* Espacio entre cada repetición de la frase */
+  padding-right: 60px;
   color: #e6d3ff;
   font-family: 'Jazmin-Bold', serif;
   font-size: clamp(2.5rem, 5vw, 5rem);
 }
 
-/* Animación de desplazamiento */
-@keyframes moverCartel {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-
-/* Pausar el movimiento al pasar el cursor */
 .separador:hover .cartel-track {
   animation-play-state: paused;
 }
 
-/* Estilo para la autora fijada abajo a la derecha */
 .separador .autor {
   position: absolute;
-  bottom: 15px;
-  right: 30px;
+  bottom: 20px;
+  right: 40px;
   margin: 0;
   color: #e6d3ff;
   font-family: 'Jazmin-BoldIt', serif;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
   font-style: italic;
   z-index: 2;
-  background: #2f1c49; /* Fondo sólido para que el texto en movimiento pase por detrás */
+  background: #2f1c49;
   padding: 4px 12px;
   border-radius: 4px;
 }
 
-.separador h2 {
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0;
-  color: #e6d3ff;
-
-  width: 100%;                            
-  text-align: center;                    
-  font-size: clamp(2.5rem, 5.5vw, 5.5rem); 
-
+@keyframes moverCartel {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
 }
-
-.separador .autor {
-  position: absolute;
-  bottom: 25px;  /* Distancia desde abajo */
-  right: 60px;   /* Distancia desde la derecha */
-  margin: 0;
-  
-  color: #e6d3ff;
-  font-family: 'Juana', serif;
-  font-size: 1.8rem;
-  font-style: italic;
-}
-/* Pues aqui va una parte para que las dos comlunas sean una cuando es muy pequeño pero no va*/
-
-@media(max-width: 500px) {
- .columnas {
-  grid-template-columns: 1fr;
-  }
-}
-
-/*prueba*/
 
 /* ==========================================
-   CARRUSEL (SLIDER) INTEGRADO
+   6. CARRUSEL (SLIDER)
    ========================================== */
 
 .slider {
-  height: 950px; /* Altura fija para que encaje al final de la página */
+  min-height: 800px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -270,8 +251,7 @@ p {
 
 .slider__contents {
   height: 100%;
-  padding: 2rem;
-  padding-bottom: 90px;
+  padding: 2rem 1.5rem 90px 1.5rem;
   text-align: center;
   display: flex;
   flex: 1;
@@ -280,96 +260,121 @@ p {
   justify-content: center;
 }
 
-/* Estilos para las imágenes del carrusel */
 .slider__image {
-  width: 500px;          /* Ancho deseado de las imágenes */
-  height: 350px;         /* Alto deseado */
-  object-fit: cover;     /* Mantiene la proporción sin distorsionar */
-  border-radius: 12px;   /* Opcional: esquinas ligeramente redondeadas */
+  width: 100%;
+  max-width: 500px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
   margin-bottom: 1rem;
 }
 
-/* Título con la tipografía Jazmin-Bold */
 .slider__caption {
   font-family: 'Jazmin-Bold', serif;
-  font-weight: 150;
-  font-size: 2.3rem;     /* Tamaño ajustado para el carrusel */
+  font-size: clamp(1.8rem, 4vw, 2.3rem);
   color: #2f1c49;
   margin: 1rem 0;
   text-transform: uppercase;
 }
 
-/* Párrafo con la tipografía Juana */
 .slider__txt {
   font-family: 'Juana', serif;
-  font-weight: 150;
   font-size: 1rem;
   color: #2f1c49;
-  max-width: 500px;
+  max-width: 600px;
   text-align: center;
-  margin: 0.1 auto 2rem auto;
+  margin: 0 auto 2rem auto;
+  padding: 0 15px;
 }
 
-.texto-pre-footer { /* Cambia esta clase por el nombre de tu contenedor de texto */
-  background: #e6d3ff;
-  padding: 60px 10% 20px; /* Reducimos el padding inferior para pegar el texto al pie */
+/* ==========================================
+   7. FINAL DE PÁGINA (AGRADECIMIENTOS Y FOOTER)
+   ========================================== */
+
+/* Contenedor principal con el único degradado continuo */
+.final-pagina {
+  width: 100%;
+  padding: 80px 0 60px 0;
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, #e6d3ff 0%, #ffffff 100%);
 }
-.texto-pre-footer h2 {
-  font-family: 'Jazmin-Bold', serif;
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  color: #2f1c49;
-  margin-top: 0;
-  margin-bottom: 20px;
+
+/* Agradecimientos / Reflexión Pre-footer */
+.texto-pre-footer {
+  background: transparent;
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 0 24px;
 }
 
 .texto-pre-footer p {
-  font-family: 'Juana', serif;
-  font-size: 1.15rem;
+  font-family: 'Jazmin-Bold', serif; /* Peso negrita aplicado */
+  font-weight: bold;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem); /* Tamaño aumentado */
   line-height: 1.6;
-  color: #3b245a;
-  max-width: 800px; /* Limita el ancho del texto para facilitar la lectura */
-  margin: 0 auto;  /* Centra el bloque de texto */
+  color: #2f1c49;
+  max-width: 850px;
+  margin: 0 auto 20px auto;
+  text-align: center;
+  padding: 0;
 }
 
-
-
-/* --- PIE DE PÁGINA DE TEXTO CON DEGRADADO --- */
+/* Columnas de información */
 .pie-info {
+  background: transparent;
   width: 100%;
-  padding: 40px 10% 50px;
-  box-sizing: border-box;
-  
-  /* El degradado nace del lavanda (#e6d3ff) y termina suavemente en blanco (#ffffff) */
-  background: linear-gradient(to bottom, #e6d3ff 0%, #ffffff 100%);
-  
+  padding: 0 24px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 80px;
+  gap: 60px;
 }
 
 .columna-info {
   flex: 1;
-  min-width: 240px;
+  min-width: 260px;
   max-width: 380px;
 }
 
-/* Título de cada columna (Main Office / Service Center) */
 .columna-info h3 {
   font-family: 'Jazmin-Bold', serif;
+  font-weight: bold;
   font-size: 1.3rem;
-  color: #2f1c49; /* Título en morado oscuro para destacar sobre la parte superior del degradado */
-  margin-top: 0;
+  color: #2f1c49;
   margin-bottom: 18px;
 }
 
-/* Líneas de texto informativas */
 .columna-info p {
   font-family: 'Juana', serif;
   font-size: 0.95rem;
-  line-height: 1.5;
-  margin: 3px 0;
+  line-height: 1.6;
+  margin: 4px 0;
   color: #3b245a;
   opacity: 0.9;
+  padding: 0;
+  max-width: none;
+}
+
+/* ==========================================
+   8. ADAPTABILIDAD RESPONSIVA (MÓVILES)
+   ========================================== */
+
+@media (max-width: 768px) {
+  .columnas {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .slider {
+    min-height: 750px;
+  }
+
+  .slider__image {
+    height: 250px;
+  }
+
+  .pie-info {
+    gap: 40px;
+  }
 }
 
