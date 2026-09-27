@@ -1,0 +1,375 @@
+/* Inside your style.css file or <style> block */
+@font-face {
+  font-family: 'Jazmin-Black';
+  src: url('https://drive.google.com/file/d/1SuCwKZUjy1PcS7HoKRNuDb13nTYxsdWd/view?usp=sharing') format('otf');
+  font-weight: normal;
+  font-style: black;
+}
+
+@font-face {
+  font-family: 'Jazmin-Bold';
+  src: url('https://drive.google.com/file/d/1pTw8cej0ENtcqiHa-b2iS4OX-y_-E0P1/view?usp=sharing') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jazmin-BoldIt';
+  src: url('https://drive.google.com/file/d/1r_8uI4NWdWfFupj231C-FOblwJrJPHk5/view?usp=sharing') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Juana';
+  src: url('https://drive.google.com/file/d/1g9CO8TNBRDneP2i2aQZORjsLFqwX7QSJ/view?usp=sharing') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body{
+  background:#e6d3ff ;
+  margin: 0;   
+  padding: 0;
+}
+
+/* Titulo grande */
+h1 {
+  font-family: 'Jazmin-Black';
+  font-weight: 150;
+  font-size: clamp(5rem, 10vw, 18rem);
+  color: #2f1c49;
+}
+
+/*Titulo graande de uso normal*/
+
+h2 {
+  font-family: 'Jazmin-Bold', serif;
+  font-weight: 150;
+  font-size: 4rem;
+  color: #2f1c49;
+  
+  text-align-last: center;
+}
+
+
+/*subtitulo parrafo*/
+h3 {
+  font-family: 'Juana', serif;
+  font-weight: 150;
+  font-size:2rem;
+  color: #2f1c49;
+}
+
+/*parrafo texto comun*/
+p {
+  font-family: 'Juana', serif;
+  font-weight: 150;
+  font-size:1rem;
+  text-align: left;
+  color: #2f1c49;
+  max-width: 1000px;
+  margin:0 auto;
+}
+
+.columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+}
+
+.columna p {
+  max-width: none;
+  margin: 0;
+}
+
+.titulo {
+  position: relative;
+  width: 100%;
+  height: clamp(600px, 50vw, 1000px);
+}
+
+.titulo img {
+   position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.titulo h1 {
+  position: absolute;
+  z-index: 1;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  margin: 0;
+
+}
+
+.separador {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  min-height: 250px;     /* Altura mínima deseada */
+  padding: 80px 20px;
+  background: #2f1c49;
+
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.cartel-track {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%; /* Inicia el recorrido desde fuera de la pantalla a la derecha */
+  animation: moverCartel 18s linear infinite; /* Ajusta los segundos para acelerar o frenar */
+}
+
+.cartel-item {
+  display: inline-block;
+  padding-right: 60px; /* Espacio entre cada repetición de la frase */
+  color: #e6d3ff;
+  font-family: 'Jazmin-Bold', serif;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+}
+
+/* Animación de desplazamiento */
+@keyframes moverCartel {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+/* Pausar el movimiento al pasar el cursor */
+.separador:hover .cartel-track {
+  animation-play-state: paused;
+}
+
+/* Estilo para la autora fijada abajo a la derecha */
+.separador .autor {
+  position: absolute;
+  bottom: 15px;
+  right: 30px;
+  margin: 0;
+  color: #e6d3ff;
+  font-family: 'Jazmin-BoldIt', serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  z-index: 2;
+  background: #2f1c49; /* Fondo sólido para que el texto en movimiento pase por detrás */
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
+.separador h2 {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  color: #e6d3ff;
+
+  width: 100%;                            
+  text-align: center;                    
+  font-size: clamp(2.5rem, 5.5vw, 5.5rem); 
+
+}
+
+.separador .autor {
+  position: absolute;
+  bottom: 25px;  /* Distancia desde abajo */
+  right: 60px;   /* Distancia desde la derecha */
+  margin: 0;
+  
+  color: #e6d3ff;
+  font-family: 'Juana', serif;
+  font-size: 1.8rem;
+  font-style: italic;
+}
+/* Pues aqui va una parte para que las dos comlunas sean una cuando es muy pequeño pero no va*/
+
+@media(max-width: 500px) {
+ .columnas {
+  grid-template-columns: 1fr;
+  }
+}
+
+/*prueba*/
+
+/* ==========================================
+   CARRUSEL (SLIDER) INTEGRADO
+   ========================================== */
+
+.slider {
+  height: 950px; /* Altura fija para que encaje al final de la página */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.slider__nav {
+  width: 14px;
+  height: 14px;
+  margin: 0.5rem 8px;
+  border-radius: 50%;
+  z-index: 10;
+  outline: 2px solid #2f1c49;
+  outline-offset: 2px;
+  cursor: pointer;
+  appearance: none;
+  background-color: transparent;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.slider__nav:checked {
+  background-color: #2f1c49;
+  transform: scale(1.1);
+}
+
+.slider__nav:checked:nth-of-type(1) ~ .slider__inner { left: 0%; }
+.slider__nav:checked:nth-of-type(2) ~ .slider__inner { left: -100%; }
+.slider__nav:checked:nth-of-type(3) ~ .slider__inner { left: -200%; }
+.slider__nav:checked:nth-of-type(4) ~ .slider__inner { left: -300%; }
+
+.slider__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400%;
+  height: 100%;
+  transition: left 0.4s ease-in-out;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.slider__contents {
+  height: 100%;
+  padding: 2rem;
+  padding-bottom: 90px;
+  text-align: center;
+  display: flex;
+  flex: 1;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos para las imágenes del carrusel */
+.slider__image {
+  width: 500px;          /* Ancho deseado de las imágenes */
+  height: 350px;         /* Alto deseado */
+  object-fit: cover;     /* Mantiene la proporción sin distorsionar */
+  border-radius: 12px;   /* Opcional: esquinas ligeramente redondeadas */
+  margin-bottom: 1rem;
+}
+
+/* Título con la tipografía Jazmin-Bold */
+.slider__caption {
+  font-family: 'Jazmin-Bold', serif;
+  font-weight: 150;
+  font-size: 2.3rem;     /* Tamaño ajustado para el carrusel */
+  color: #2f1c49;
+  margin: 1rem 0;
+  text-transform: uppercase;
+}
+
+/* Párrafo con la tipografía Juana */
+.slider__txt {
+  font-family: 'Juana', serif;
+  font-weight: 150;
+  font-size: 1rem;
+  color: #2f1c49;
+  max-width: 500px;
+  text-align: center;
+  margin: 0.1 auto 2rem auto;
+}
+
+.texto-pre-footer { /* Cambia esta clase por el nombre de tu contenedor de texto */
+  background: #e6d3ff;
+  padding: 60px 10% 20px; /* Reducimos el padding inferior para pegar el texto al pie */
+}
+.texto-pre-footer h2 {
+  font-family: 'Jazmin-Bold', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  color: #2f1c49;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.texto-pre-footer p {
+  font-family: 'Juana', serif;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #3b245a;
+  max-width: 800px; /* Limita el ancho del texto para facilitar la lectura */
+  margin: 0 auto;  /* Centra el bloque de texto */
+}
+
+
+
+/* --- PIE DE PÁGINA DE TEXTO CON DEGRADADO --- */
+.pie-info {
+  width: 100%;
+  padding: 40px 10% 50px;
+  box-sizing: border-box;
+  
+  /* El degradado nace del lavanda (#e6d3ff) y termina suavemente en blanco (#ffffff) */
+  background: linear-gradient(to bottom, #e6d3ff 0%, #ffffff 100%);
+  
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 80px;
+}
+
+.columna-info {
+  flex: 1;
+  min-width: 240px;
+  max-width: 380px;
+}
+
+/* Título de cada columna (Main Office / Service Center) */
+.columna-info h3 {
+  font-family: 'Jazmin-Bold', serif;
+  font-size: 1.3rem;
+  color: #2f1c49; /* Título en morado oscuro para destacar sobre la parte superior del degradado */
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+/* Líneas de texto informativas */
+.columna-info p {
+  font-family: 'Juana', serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 3px 0;
+  color: #3b245a;
+  opacity: 0.9;
+}
+
