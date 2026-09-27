@@ -216,11 +216,11 @@ p {
 }
 
 /* ==========================================
-   6. CARRUSEL (SLIDER) - CORREGIDO
+   6. CARRUSEL (SLIDER) - AMPLIADO
    ========================================== */
 
 .slider {
-  min-height: 850px;
+  min-height: 900px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -236,7 +236,7 @@ p {
   height: 16px;
   margin: 0 6px 20px 6px;
   border-radius: 50%;
-  z-index: 20; /* Asegura que las bolitas queden sobre el texto */
+  z-index: 20;
   outline: 2px solid #2f1c49;
   outline-offset: 2px;
   cursor: pointer;
@@ -268,7 +268,7 @@ p {
 
 .slider__contents {
   height: 100%;
-  padding: 2rem 1.5rem 80px 1.5rem; /* Margen inferior para no tapar los botones */
+  padding: 1.5rem 1.5rem 100px 1.5rem;
   text-align: center;
   display: flex;
   flex: 1;
@@ -304,7 +304,6 @@ p {
   padding: 0 15px;
   line-height: 1.5;
 }
-
 
 /* ==========================================
    7. FINAL DE PÁGINA (AGRADECIMIENTOS Y FOOTER)
@@ -377,9 +376,6 @@ p {
 /* ==========================================
    8. ADAPTABILIDAD RESPONSIVA (MÓVILES)
    ========================================== */
-/* ==========================================
-   8. ADAPTABILIDAD RESPONSIVA (MÓVILES)
-   ========================================== */
 
 @media (max-width: 768px) {
   .columnas {
@@ -387,23 +383,28 @@ p {
     gap: 30px;
   }
 
-  /* Ajustes para el carrusel en celulares */
+  /* 1. Altura ampliada del carrusel para móviles */
   .slider {
-    min-height: 880px; /* Se aumenta la altura total para textos largos */
+    min-height: 1150px; /* Si necesitas aún más espacio, sube este valor a 1250px */
   }
 
+  /* 2. Protección inferior para que el texto no toque los botones */
   .slider__contents {
-    padding: 1rem 1rem 80px 1rem;
+    padding: 1rem 1rem 110px 1rem;
   }
 
+  /* 3. Imagen completa sin recortar bordes */
   .slider__image {
-    height: 190px; /* Reducción de la altura de la imagen para mostrar más foto */
-    object-fit: cover;
+    height: auto;
+    max-height: 220px;
+    object-fit: contain; /* Muestra el 100% de la fotografía sin recortar arriba/abajo */
+    background: transparent;
   }
 
+  /* 4. Tipografía ajustada para lectura fluida en celular */
   .slider__txt {
-    font-size: 0.88rem; /* Tamaño de letra optimizado para lectura en celular */
-    line-height: 1.45;
+    font-size: 0.85rem;
+    line-height: 1.5;
     padding: 0 5px;
   }
 
